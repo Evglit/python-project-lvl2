@@ -37,7 +37,7 @@ jobs:
     - uses: actions/setup-python@v2
       with:
         python-version: 3.8.5
-    run: |
+    - run: |
     	pip install poetry
     	make install
     - uses: paambaati/codeclimate-action@v2.7.5
