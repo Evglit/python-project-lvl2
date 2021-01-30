@@ -1,6 +1,7 @@
 """Test comprsion"""
 
 from difference_calculator.tools.comparison import generate_diff
+import json
 
 
 def test_generate_diff():
