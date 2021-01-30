@@ -23,7 +23,6 @@ jobs:
           pip install poetry
           poetry install
           pip install -U pytest
-          
       - name: Run linter and pytest
         run: |
           make lint
@@ -38,7 +37,7 @@ jobs:
       with:
         python-version: 3.8
     - run: |
-          pip install coverage
+        pip install coverage
     - uses: paambaati/codeclimate-action@v2.7.5
       env:
         CC_TEST_REPORTER_ID: 5e90b528187a062afadf1efe9cca7fcb9859aed0b4da4f163cfdb8d8c7a6928e
