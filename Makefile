@@ -2,4 +2,4 @@ lint:
 	poetry run flake8 difference_calculator
 	
 test:
-	pytest
+	pytest --junit-xml test_result

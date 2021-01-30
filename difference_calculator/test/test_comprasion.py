@@ -15,6 +15,7 @@ def test_generate_diff():
         "verbose": True,
         "host": "hexlet.io",
     }
+    #right_answer = open('fixtures/right_answer.txt')
     right_answer = (
         '{\n    host: hexlet.io'
         '\n  - timeout: 50'
