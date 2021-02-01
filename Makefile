@@ -6,3 +6,4 @@ test:
 	
 test-coverage:
 	coverage run -m pytest
+	coverage report
