@@ -26,10 +26,9 @@ jobs:
     - uses: actions/setup-node@master
       with:
         node-version: ${{ matrix.node }}
-    - run: npm install -g yarn
-    - run: yarn install
-    - run: yarn build
-    - run: yarn test
+    - run: pip install poetry
+    - run: poetry install
+    - run: pip install -U pytest
   coverage:
     needs: [ test ]
     name: coverage
@@ -39,11 +38,11 @@ jobs:
     - uses: actions/setup-node@master
       with:
         node-version: '12'
-    - run: npm install -g yarn
-    - run: yarn install
-    - run: yarn build
+    - run: pip install poetry
+    - run: poetry install
+    - run: pip install coverage
     - uses: paambaati/codeclimate-action@v2.2.4
       env:
         CC_TEST_REPORTER_ID: c58c7b4dde0dd114d4420d1b69752a5b4dac48ced97f5a23072570c3cecf7e2c
       with:
-        coverageCommand: yarn coverage
+        coverageCommand: make test-coverage
