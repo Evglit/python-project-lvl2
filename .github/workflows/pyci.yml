@@ -34,3 +34,4 @@ jobs:
           CC_TEST_REPORTER_ID: <code_climate_reporter_id>
         with:
           coverageCommand: coverage report
+          debug: true
