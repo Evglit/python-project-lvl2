@@ -28,7 +28,7 @@ jobs:
           make lint
           make test
   coverage:
-    needs: [ test ]
+    needs: [ build ]
     name: coverage
     runs-on: ubuntu-latest
     steps:
