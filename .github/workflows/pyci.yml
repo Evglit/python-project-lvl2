@@ -27,7 +27,7 @@ jobs:
       - name: Run linter and pytest
         run: |
           make lint
-          poetry run pytest --junit-xml=./difference_calculator/tests/coverage.xml
+          poetry run pytest --junit-xml=./difference_calculator/test/coverage.xml
           poetry run coverage run -m pytest
       - name: Test & publish code coverage
         uses: paambaati/codeclimate-action@v2.7.5
