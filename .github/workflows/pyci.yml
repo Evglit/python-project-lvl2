@@ -21,14 +21,13 @@ jobs:
       - name: Install dependencies
         run: |
           pip install poetry
-          pip install -U pytest
+          pip install pytest
           pip install coverage
           poetry install
       - name: Run linter and pytest
         run: |
           make lint
-          make test-coverage
-          poetry run pytest --junit-xml=./tests/coverage.xml
+          poetry run pytest --junit-xml=./difference_calculator/tests/coverage.xml
           poetry run coverage run -m pytest
       - name: Test & publish code coverage
         uses: paambaati/codeclimate-action@v2.7.5
