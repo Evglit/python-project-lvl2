@@ -33,4 +33,4 @@ jobs:
         uses: paambaati/codeclimate-action@v2.7.5
         env:
           DEFAULT_BRANCH: main
-          CC_TEST_REPORTER_ID: c58c7b4dde0dd114d4420d1b69752a5b4dac48ced97f5a23072570c3cecf7e2c
+          CC_TEST_REPORTER_ID: 27a26a6c1807bcc8b53a377167d9fe2b718eb57336ca02f85dcb8ea8576bb4af
