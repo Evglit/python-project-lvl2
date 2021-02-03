@@ -24,12 +24,12 @@ jobs:
           poetry install
           pip install -U pytest
           pip install coverage
-          poetry run pytest --junit-xml=./tests/coverage.xml
-          poetry run coverage run -m pytest
       - name: Run linter and pytest
         run: |
           make lint
           make test-coverage
+          poetry run pytest --junit-xml=./tests/coverage.xml
+          poetry run coverage run -m pytest
       - name: Test & publish code coverage
         uses: paambaati/codeclimate-action@v2.7.5
         env:
