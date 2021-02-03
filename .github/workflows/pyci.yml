@@ -24,6 +24,9 @@ jobs:
           poetry install
           pip install -U pytest
           pip install coverage
+          npm install -g yarn
+          yarn install
+          yarn build
       - name: Run linter and pytest
         run: |
           make lint
@@ -33,4 +36,4 @@ jobs:
         env:
           CC_TEST_REPORTER_ID: c58c7b4dde0dd114d4420d1b69752a5b4dac48ced97f5a23072570c3cecf7e2c
         with:
-          coverageCommand: coverage json
+          coverageCommand: yarn coverage
