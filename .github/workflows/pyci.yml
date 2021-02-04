@@ -35,4 +35,4 @@ jobs:
           DEFAULT_BRANCH: main
           CC_TEST_REPORTER_ID: 27a26a6c1807bcc8b53a377167d9fe2b718eb57336ca02f85dcb8ea8576bb4af
         with:
-          coverageCommand: coverage report
+          coverageCommand: poetry run coverage xml
