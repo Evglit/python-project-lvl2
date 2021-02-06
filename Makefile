@@ -3,7 +3,3 @@ lint:
 	
 test:
 	pytest --junit-xml test_result
-	
-test-coverage:
-	coverage run -m pytest
-	coverage report

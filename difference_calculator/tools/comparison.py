@@ -16,4 +16,6 @@ def generate_diff(dict1, dict2):
     for key_dict2, value_dict2 in dict2.items():
         if key_dict2 not in dict1:
             result.append('+ {}: {}'.format(key_dict2, value_dict2))
-    return '{\n  ' + '\n  '.join(result) + '\n}'
+    result = '{\n  ' + '\n  '.join(result) + '\n}\n'
+    print(result)
+    return result

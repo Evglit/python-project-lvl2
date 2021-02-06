@@ -1,27 +1,18 @@
 """Test comprsion"""
 
 from difference_calculator.tools.comparison import generate_diff
+from pathlib import Path
+import json
 
 
 def test_generate_diff():
-    dict1 = {
-        "host": "hexlet.io",
-        "timeout": 50,
-        "proxy": "123.234.53.22",
-        "follow": False,
-    }
-    dict2 = {
-        "timeout": 20,
-        "verbose": True,
-        "host": "hexlet.io",
-    }
-    right_answer = (
-        '{\n    host: hexlet.io'
-        '\n  - timeout: 50'
-        '\n  + timeout: 20'
-        '\n  - proxy: 123.234.53.22'
-        '\n  - follow: False'
-        '\n  + verbose: True'
-        '\n}'
-    )
-    assert generate_diff(dict1, dict2) == right_answer
+    path_dict1 = Path(
+        Path.home(), 'Projects', 'python-project-lvl2',
+        'difference_calculator', 'test', 'fixtures',
+        'file1.json')
+    path_dict2 = path_dict1.with_name('file2.json')
+    path_right_answer = path_dict1.with_name('right_answer.txt')
+    dict1 = json.load(open('{}'.format(path_dict1)))
+    dict2 = json.load(open('{}'.format(path_dict2)))
+    right_answer = open('{}'.format(path_right_answer))
+    assert generate_diff(dict1, dict2) == right_answer.read()
