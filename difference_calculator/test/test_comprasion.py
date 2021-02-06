@@ -7,8 +7,8 @@ import json
 
 def test_generate_diff():
     path_dict1 = Path(
-        Path.home(), 'python-project-lvl2',
-        'difference_calculator', 'test', 'fixtures',
+        Path().absolute(),
+        'fixtures',
         'file1.json')
     path_dict2 = path_dict1.with_name('file2.json')
     path_right_answer = path_dict1.with_name('right_answer.txt')
