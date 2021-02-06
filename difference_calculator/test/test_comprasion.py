@@ -7,7 +7,7 @@ import json
 
 def test_generate_diff():
     path_dict1 = Path(
-        Path().absolute(),
+        Path(__file__).parent.absolute(),
         'fixtures',
         'file1.json')
     path_dict2 = path_dict1.with_name('file2.json')
