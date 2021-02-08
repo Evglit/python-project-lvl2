@@ -29,9 +29,9 @@ def test_generate_diff_yml():
         'file1.yml')
     path_dict4 = path_dict3.with_name('file2.yml')
     with open(path_dict3) as f:
-        dict3 = yaml.load(f)
+        dict3 = yaml.safe_load(f)
     with open(path_dict4) as f:
-        dict4 = yaml.load(f)
+        dict4 = yaml.safe_load(f)
     path_right_answer = Path(
         Path(__file__).parent.absolute(),
         'fixtures',

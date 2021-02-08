@@ -6,4 +6,7 @@
 
 
 ### Test:
-[![asciicast](https://asciinema.org/a/V71sJYZpaf5sRzXoEOdINp84V.svg)](https://asciinema.org/a/V71sJYZpaf5sRzXoEOdINp84V)
+[![asciicast](https://asciinema.org/a/V71sJYZpaf5sRzXoEOdINp84V.svg)](https://asciinema.org/a/V71sJYZpaf5sRzXoEOdINp84V)<br>
+
+### Test Step 5:
+[![asciicast](https://asciinema.org/a/AVvEMwofDQBHrgLLjKaRpLKMj.svg)](https://asciinema.org/a/AVvEMwofDQBHrgLLjKaRpLKMj)
