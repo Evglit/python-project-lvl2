@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
 import argparse
-import json
 from difference_calculator.tools.comparison import generate_diff
+from difference_calculator.tools.to_parse import to_parse
 
 
 def main():
@@ -11,8 +11,8 @@ def main():
     parser.add_argument('second_file')
     parser.add_argument('-f', '--format', help='set format of output')
     args = parser.parse_args()
-    arg1 = json.load(open(args.first_file))
-    arg2 = json.load(open(args.second_file))
+    arg1 = to_parse(args.first_file)
+    arg2 = to_parse(args.second_file)
     print(generate_diff(arg1, arg2))
 
 
