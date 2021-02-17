@@ -1,9 +1,16 @@
 """Comparing flat files."""
 
+from difference_calculator.tools.formater import stylish
 
-def generate_diff(dict1, dict2):
+
+def generate_diff(dict1, dict2, format_name=stylish):
     str_data(dict1)
     str_data(dict2)
+    result = diff(dict1, dict2)
+    return format_name(result)
+
+
+def diff(dict1, dict2):
     result = {}
     common_keys = list(dict1.keys() & dict2.keys())
     added_keys = list(dict2.keys() - dict1.keys())
@@ -13,7 +20,7 @@ def generate_diff(dict1, dict2):
             result['  ' + key] = dict1[key]
         else:
             if type(dict1[key]) is dict and type(dict2[key]) is dict:
-                result['  ' + key] = generate_diff(dict1[key], dict2[key])
+                result['  ' + key] = diff(dict1[key], dict2[key])
             else:
                 result['- ' + key] = dict1[key]
                 result['+ ' + key] = dict2[key]
@@ -34,32 +41,3 @@ def str_data(dictionary):
             dictionary[key] = 'false'
         elif dictionary[key] is None:
             dictionary[key] = 'null'
-
-
-def stylish(dictionary, level=0):
-    result = '{\n'
-    indent = '  '
-    for i in range(level):
-        indent += '    '
-    keys = list(dictionary.keys())
-    if keys[0][0] != '+' and keys[0][0] != '-' and keys[0][0] != ' ':
-        keys.sort()
-    else:
-        keys.sort(key=lambda x: x[2:])
-    for key in keys:
-        if type(dictionary[key]) is dict:
-            if key[:2] != '+ ' and key[:2] != '- ' and key[:2] != '  ':
-                prefix = indent + '  ' + key + ': '
-                result += prefix + stylish(dictionary[key], level + 1) + '\n'
-            else:
-                prefix = indent + key + ': '
-                result += prefix + stylish(dictionary[key], level + 1) + '\n'
-        else:
-            if key[:2] != '+ ' and key[:2] != '- ' and key[:2] != '  ':
-                prefix = indent + '  ' + key + ': '
-                result += prefix + str(dictionary[key]) + '\n'
-            else:
-                prefix = indent + key + ': '
-                result += prefix + str(dictionary[key]) + '\n'
-    result += indent[:-2] + '}\n' if level == 0 else indent[:-2] + '}'
-    return result

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import argparse
-from difference_calculator.tools.gendiff import generate_diff, stylish
+from difference_calculator.tools.gendiff import generate_diff
 from difference_calculator.tools.to_parse import to_parse
 
 
@@ -13,7 +13,7 @@ def main():
     args = parser.parse_args()
     arg1 = to_parse(args.first_file)
     arg2 = to_parse(args.second_file)
-    print(stylish(generate_diff(arg1, arg2)))
+    print(generate_diff(arg1, arg2))
 
 
 if __name__ == '__main__':
