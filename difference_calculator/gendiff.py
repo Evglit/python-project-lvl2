@@ -5,7 +5,8 @@ from difference_calculator.formaters.plain import plain
 
 
 def generate_diff(dict1, dict2, format_name):
-    """Create a difference between two files in a selected format. Return string."""
+    """Create a difference between two files in a selected format.
+    Return string."""
     result = diff(dict1, dict2)
     if format_name == 'stylish':
         return stylish(result)
