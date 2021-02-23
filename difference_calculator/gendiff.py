@@ -2,18 +2,22 @@
 
 from difference_calculator.formaters.stylish import stylish
 from difference_calculator.formaters.plain import plain
+from difference_calculator.formaters.json import format_json
 
 
 def generate_diff(dict1, dict2, format_name):
     """Create a difference between two files in a selected format.
     Return string."""
-    result = diff(dict1, dict2)
     if format_name == 'stylish':
+        result = diff(dict1, dict2)
         return stylish(result)
-    elif 'plain':
+    elif format_name == 'plain':
+        result = diff(dict1, dict2)
         return plain(result)
-    else:
-        return 'Format not found!'
+    elif format_name == 'json':
+        result = diff(dict1, dict2)
+        return format_json(result)
+    return 'Format {} not found!'.format(format_name)
 
 
 def diff(dict1, dict2):

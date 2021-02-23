@@ -1,0 +1,199 @@
+[
+    {
+        "name": "common",
+        "status": "not changed",
+        "type node": "internal",
+        "children": [
+            {
+                "name": "setting1",
+                "status": "not changed",
+                "type node": "leaf",
+                "data": "Value 1"
+            },
+            {
+                "name": "setting3",
+                "status": "before update",
+                "type node": "leaf",
+                "data": true
+            },
+            {
+                "name": "setting3",
+                "status": "after update",
+                "type node": "leaf",
+                "data": null
+            },
+            {
+                "name": "setting6",
+                "status": "not changed",
+                "type node": "internal",
+                "children": [
+                    {
+                        "name": "doge",
+                        "status": "not changed",
+                        "type node": "internal",
+                        "children": [
+                            {
+                                "name": "wow",
+                                "status": "before update",
+                                "type node": "leaf",
+                                "data": ""
+                            },
+                            {
+                                "name": "wow",
+                                "status": "after update",
+                                "type node": "leaf",
+                                "data": "so much"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "key",
+                        "status": "not changed",
+                        "type node": "leaf",
+                        "data": "value"
+                    },
+                    {
+                        "name": "ops",
+                        "status": "added",
+                        "type node": "leaf",
+                        "data": "vops"
+                    }
+                ]
+            },
+            {
+                "name": "follow",
+                "status": "added",
+                "type node": "leaf",
+                "data": false
+            },
+            {
+                "name": "setting4",
+                "status": "added",
+                "type node": "leaf",
+                "data": "blah blah"
+            },
+            {
+                "name": "setting5",
+                "status": "added",
+                "type node": "internal",
+                "children": [
+                    {
+                        "name": "key5",
+                        "status": "not changed",
+                        "type node": "leaf",
+                        "data": "value5"
+                    }
+                ]
+            },
+            {
+                "name": "setting2",
+                "status": "deleted",
+                "type node": "leaf",
+                "data": 200
+            }
+        ]
+    },
+    {
+        "name": "group1",
+        "status": "not changed",
+        "type node": "internal",
+        "children": [
+            {
+                "name": "baz",
+                "status": "before update",
+                "type node": "leaf",
+                "data": "bas"
+            },
+            {
+                "name": "baz",
+                "status": "after update",
+                "type node": "leaf",
+                "data": "bars"
+            },
+            {
+                "name": "foo",
+                "status": "not changed",
+                "type node": "leaf",
+                "data": "bar"
+            },
+            {
+                "name": "nest",
+                "status": "before update",
+                "type node": "internal",
+                "children": [
+                    {
+                        "name": "key",
+                        "status": "not changed",
+                        "type node": "leaf",
+                        "data": "value"
+                    }
+                ]
+            },
+            {
+                "name": "nest",
+                "status": "after update",
+                "type node": "leaf",
+                "data": "str"
+            }
+        ]
+    },
+    {
+        "name": "group3",
+        "status": "added",
+        "type node": "internal",
+        "children": [
+            {
+                "name": "deep",
+                "status": "not changed",
+                "type node": "internal",
+                "children": [
+                    {
+                        "name": "id",
+                        "status": "not changed",
+                        "type node": "internal",
+                        "children": [
+                            {
+                                "name": "number",
+                                "status": "not changed",
+                                "type node": "leaf",
+                                "data": 45
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "fee",
+                "status": "not changed",
+                "type node": "leaf",
+                "data": 100500
+            }
+        ]
+    },
+    {
+        "name": "group2",
+        "status": "deleted",
+        "type node": "internal",
+        "children": [
+            {
+                "name": "abc",
+                "status": "not changed",
+                "type node": "leaf",
+                "data": 12345
+            },
+            {
+                "name": "deep",
+                "status": "not changed",
+                "type node": "internal",
+                "children": [
+                    {
+                        "name": "id",
+                        "status": "not changed",
+                        "type node": "leaf",
+                        "data": 45
+                    }
+                ]
+            }
+        ]
+    }
+]
