@@ -8,25 +8,42 @@ def stylish(diff_list, level=0):
     for i in range(level):
         indent += '    '
     diff_list.sort(key=lambda x: x['name'])
-    for item in diff_list:
-        if item['status'] == 'not changed':
-            status = '  '
-        elif item['status'] == 'deleted' or item['status'] == 'before update':
-            status = '- '
-        elif item['status'] == 'added' or item['status'] == 'after update':
-            status = '+ '
-        if item['type node'] == 'internal':
-            result += indent + status + item['name'] + ': ' \
-                + stylish(item['children'], level + 1) + '\n'
+    for node in diff_list:
+        status = format_status(node)
+        if has_children(node):
+            result += indent + status + node['name'] + ': ' \
+                + stylish(node['children'], level + 1) + '\n'
         else:
-            if item['data'] is False:
-                data = 'false'
-            elif item['data'] is True:
-                data = 'true'
-            elif item['data'] is None:
-                data = 'null'
-            else:
-                data = str(item['data'])
-            result += indent + status + item['name'] + ': ' + data + '\n'
+            data = format_data(node)
+            result += indent + status + node['name'] + ': ' + data + '\n'
     result += indent[:-2] + '}\n' if level == 0 else indent[:-2] + '}'
     return result
+
+
+def format_data(node):
+    """Parses the node data. Returns it in the correct format as a string."""
+    if node['data'] is False:
+        return 'false'
+    elif node['data'] is True:
+        return 'true'
+    elif node['data'] is None:
+        return 'null'
+    else:
+        return str(node['data'])
+
+
+def format_status(node):
+    """Parses the node status. Returns it in the correct format as a string."""
+    if node['status'] == 'not changed':
+        return '  '
+    elif node['status'] == 'deleted' or node['status'] == 'before update':
+        return '- '
+    elif node['status'] == 'added' or node['status'] == 'after update':
+        return '+ '
+
+
+def has_children(node):
+    '''Checks if there are children in the node.'''
+    if node['type node'] == 'internal':
+        return True
+    return False
