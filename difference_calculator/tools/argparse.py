@@ -1,7 +1,6 @@
 """Parsing and open files."""
 
 import argparse
-from difference_calculator.tools.open_file import open_file
 
 
 def parser_arg():
@@ -13,7 +12,7 @@ def parser_arg():
     parser.add_argument('-f', '--format', default='stylish',
                         help='output format (default: "stylish")')
     args = parser.parse_args()
-    arg1 = open_file(args.first_file)
-    arg2 = open_file(args.second_file)
-    format_name = (args.format)
-    return arg1, arg2, format_name
+    path_file1 = args.first_file
+    path_file2 = args.second_file
+    format_name = args.format
+    return path_file1, path_file2, format_name

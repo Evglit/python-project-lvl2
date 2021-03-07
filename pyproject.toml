@@ -1,6 +1,6 @@
 [tool.poetry]
-name = "hexlet_code"
-version = "0.1.0"
+name = "Difference calculator"
+version = "0.1.1"
 description = ""
 authors = ["Evgeny <litun-07@mail.ru>"]
 packages = [
@@ -9,6 +9,7 @@ packages = [
 
 [tool.poetry.dependencies]
 python = "^3.8"
+PyYAML = "5.4.1"
 
 [tool.poetry.dev-dependencies]
 flake8 = "^3.8.4"

@@ -5,8 +5,8 @@ from difference_calculator.tools.argparse import parser_arg
 
 
 def main():
-    arg1, arg2, format_name = parser_arg()
-    result = generate_diff(arg1, arg2, format_name)
+    path_file1, path_file2, format_name = parser_arg()
+    result = generate_diff(path_file1, path_file2, format_name)
     print(result)
 
 
