@@ -5,10 +5,10 @@ import yaml
 from pathlib import Path
 
 
-def parsing_file(path_file):
-    """Parsing the file"""
+def get_dict_from_file(path_file):
+    """Parse the file and return dict"""
     file_extension = Path(path_file).suffix
-    if file_extension == '.json' or file_extension == '.JSON':
+    if file_extension.lower() == '.json':
         return json.load(open(path_file))
     elif file_extension == '.yml' or file_extension == '.YAML':
         return yaml.safe_load(open(path_file))

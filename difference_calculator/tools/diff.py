@@ -31,7 +31,7 @@ def process_common_keys(dict1, dict2, key):
             node = create_leaf_node(key, 'not changed', dict1[key])
             result.append(node)
     else:
-        if type(dict1[key]) is dict and type(dict2[key]) id dict:
+        if type(dict1[key]) is dict and type(dict2[key]) is dict:
             children = diff(dict1[key], dict2[key])
             node = create_internal_node(key, 'not changed', children)
             result.append(node)
@@ -76,7 +76,7 @@ def process_deleted_keys(dict1, key):
 
 
 def create_internal_node(name, status, children):
-    '''Return internal node.'''
+    """Return internal node."""
     return {
         'name': name,
         'status': status,
@@ -86,7 +86,7 @@ def create_internal_node(name, status, children):
 
 
 def create_leaf_node(name, status, data):
-    '''Return leaf node.'''
+    """Return leaf node."""
     return {
         'name': name,
         'status': status,
