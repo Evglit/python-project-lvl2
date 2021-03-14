@@ -1,1 +1,1 @@
-__all__ = ('generate_diff')
+__all__ = ('gendiff')

@@ -1,7 +1,7 @@
 """Test generate_diff"""
 
 import pytest
-from gendiff.generate_diff import generate_diff
+from gendiff.gendiff import generate_diff
 from pathlib import Path
 
 
