@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "Difference calculator"
+name = "hexlet-code"
 version = "0.1.1"
 description = ""
 authors = ["Evgeny <litun-07@mail.ru>"]
