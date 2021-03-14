@@ -1,6 +1,6 @@
-from difference_calculator.formatters.stylish import stylish
-from difference_calculator.formatters.plain import plain
-from difference_calculator.formatters.json import format_json
+from gendiff.formatters.stylish import stylish
+from gendiff.formatters.plain import plain
+from gendiff.formatters.json import format_json
 
 
 def format_diff(list_diff, format_name):

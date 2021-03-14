@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
-from difference_calculator.gendiff import generate_diff
-from difference_calculator.tools.argparse import parser_arg
+from gendiff.generate_diff import generate_diff
+from gendiff.tools.argparse import parser_arg
 
 
 def main():
