@@ -5,10 +5,22 @@
         "type node": "internal",
         "children": [
             {
+                "name": "follow",
+                "status": "added",
+                "type node": "leaf",
+                "data": false
+            },
+            {
                 "name": "setting1",
                 "status": "not changed",
                 "type node": "leaf",
                 "data": "Value 1"
+            },
+            {
+                "name": "setting2",
+                "status": "deleted",
+                "type node": "leaf",
+                "data": 200
             },
             {
                 "name": "setting3",
@@ -21,6 +33,25 @@
                 "status": "after update",
                 "type node": "leaf",
                 "data": null
+            },
+            {
+                "name": "setting4",
+                "status": "added",
+                "type node": "leaf",
+                "data": "blah blah"
+            },
+            {
+                "name": "setting5",
+                "status": "added",
+                "type node": "internal",
+                "children": [
+                    {
+                        "name": "key5",
+                        "status": "not changed",
+                        "type node": "leaf",
+                        "data": "value5"
+                    }
+                ]
             },
             {
                 "name": "setting6",
@@ -59,37 +90,6 @@
                         "data": "vops"
                     }
                 ]
-            },
-            {
-                "name": "follow",
-                "status": "added",
-                "type node": "leaf",
-                "data": false
-            },
-            {
-                "name": "setting4",
-                "status": "added",
-                "type node": "leaf",
-                "data": "blah blah"
-            },
-            {
-                "name": "setting5",
-                "status": "added",
-                "type node": "internal",
-                "children": [
-                    {
-                        "name": "key5",
-                        "status": "not changed",
-                        "type node": "leaf",
-                        "data": "value5"
-                    }
-                ]
-            },
-            {
-                "name": "setting2",
-                "status": "deleted",
-                "type node": "leaf",
-                "data": 200
             }
         ]
     },
@@ -138,6 +138,32 @@
         ]
     },
     {
+        "name": "group2",
+        "status": "deleted",
+        "type node": "internal",
+        "children": [
+            {
+                "name": "abc",
+                "status": "not changed",
+                "type node": "leaf",
+                "data": 12345
+            },
+            {
+                "name": "deep",
+                "status": "not changed",
+                "type node": "internal",
+                "children": [
+                    {
+                        "name": "id",
+                        "status": "not changed",
+                        "type node": "leaf",
+                        "data": 45
+                    }
+                ]
+            }
+        ]
+    },
+    {
         "name": "group3",
         "status": "added",
         "type node": "internal",
@@ -167,32 +193,6 @@
                 "status": "not changed",
                 "type node": "leaf",
                 "data": 100500
-            }
-        ]
-    },
-    {
-        "name": "group2",
-        "status": "deleted",
-        "type node": "internal",
-        "children": [
-            {
-                "name": "abc",
-                "status": "not changed",
-                "type node": "leaf",
-                "data": 12345
-            },
-            {
-                "name": "deep",
-                "status": "not changed",
-                "type node": "internal",
-                "children": [
-                    {
-                        "name": "id",
-                        "status": "not changed",
-                        "type node": "leaf",
-                        "data": 45
-                    }
-                ]
             }
         ]
     }
