@@ -28,4 +28,4 @@ def test_diff_stylish_json(file1, file2, right_answer, format_name):
         right_answer)
     right_answer = open('{}'.format(path_right_answer))
     assert generate_diff(path_dict1, path_dict2, format_name) \
-        == right_answer.read()
+        == right_answer.read()[:-1]
