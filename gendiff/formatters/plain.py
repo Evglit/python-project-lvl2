@@ -1,45 +1,50 @@
 '''Flat format formater.'''
 
 
-def plain(diff_list, path=''):
+def plain(diff_list):
     """Converts a list of differences to flat format. Returns string."""
     result = ''
     diff_list.sort(key=lambda x: x['name'])
+    result = get_diff_plain_list(diff_list)
+    return '\n'.join(result)
+
+
+def get_diff_plain_list(diff_list, path=''):
+    """Analysis of the nodes. Returns a list with changes."""
+    plain_list = []
+    intermediate_result = ''
     for node in diff_list:
-        difference = process_node(node, path)
-        result += difference
-    return result
-
-
-def process_node(node, path):
-    """Analysis of the node. Returns a string with changes
-    if the node was changed."""
-    if node['status'] == 'not changed' and node['type node'] == 'internal':
-        path_to_change = path + node['name'] + '.'
-        difference = plain(node['children'], path_to_change)
-        return difference
-    if node['status'] == 'added':
-        path_to_change = path + node['name']
-        change = create_change(node)
-        return (
-            f"Property '{path_to_change}' was added "
-            f"with value: {change}\n"
-        )
-    if node['status'] == 'deleted':
-        path_to_change = path + node['name']
-        change = create_change(node)
-        return "Property '{}' was removed\n".format(path_to_change)
-    if node['status'] == 'before update':
-        path_to_change = path + node['name']
-        change = create_change(node)
-        return (
-            f"Property '{path_to_change}' was updated. "
-            f"From {change} to "
-        )
-    if node['status'] == 'after update':
-        change = create_change(node)
-        return "{}\n".format(change)
-    return ''
+        if node['status'] == 'not changed' and node['type node'] == 'internal':
+            path_to_change = path + node['name'] + '.'
+            difference = get_diff_plain_list(node['children'], path_to_change)
+            plain_list.extend(difference)
+        if node['status'] == 'added':
+            path_to_change = path + node['name']
+            change = create_change(node)
+            difference= (
+                f"Property '{path_to_change}' was added "
+                f"with value: {change}"
+            )
+            plain_list.append(difference)
+        if node['status'] == 'deleted':
+            path_to_change = path + node['name']
+            change = create_change(node)
+            difference = "Property '{}' was removed".format(path_to_change)
+            plain_list.append(difference)
+        if node['status'] == 'before update':
+            path_to_change = path + node['name']
+            change = create_change(node)
+            intermediate_result = (
+                f"Property '{path_to_change}' was updated. "
+                f"From {change} to "
+            )
+            continue
+        if node['status'] == 'after update':
+            change = create_change(node)
+            difference = intermediate_result + "{}".format(change)
+            plain_list.append(difference)
+            intermediate_result = ''
+    return plain_list
 
 
 def create_change(dictionary):
