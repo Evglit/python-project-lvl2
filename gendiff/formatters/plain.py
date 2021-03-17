@@ -45,12 +45,14 @@ def process_node(node, path):
 def create_change(dictionary):
     """Parses the node data. Returns it in the correct format as a string."""
     if dictionary['type node'] == 'internal':
-        return '[complex value]'
+        return '[complex value]'  
     if dictionary['data'] is False:
         return 'false'
     elif dictionary['data'] is True:
         return 'true'
     elif dictionary['data'] is None:
         return 'null'
-    else:
+    if type(dictionary['data']) is str:
         return "'{}'".format(dictionary['data'])
+    else:
+        return '{}'.format(dictionary['data'])
