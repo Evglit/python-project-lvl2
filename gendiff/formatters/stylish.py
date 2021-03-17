@@ -16,7 +16,7 @@ def stylish(diff_list, level=0):
         else:
             data = format_data(node)
             result += indent + status + node['name'] + ': ' + data + '\n'
-    result += indent[:-2] + '}\n' if level == 0 else indent[:-2] + '}'
+    result += indent[:-2] + '}'
     return result
 
 
