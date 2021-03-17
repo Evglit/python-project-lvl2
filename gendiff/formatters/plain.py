@@ -21,7 +21,7 @@ def get_diff_plain_list(diff_list, path=''):
         if node['status'] == 'added':
             path_to_change = path + node['name']
             change = create_change(node)
-            difference= (
+            difference = (
                 f"Property '{path_to_change}' was added "
                 f"with value: {change}"
             )
@@ -50,7 +50,7 @@ def get_diff_plain_list(diff_list, path=''):
 def create_change(dictionary):
     """Parses the node data. Returns it in the correct format as a string."""
     if dictionary['type node'] == 'internal':
-        return '[complex value]'  
+        return '[complex value]'
     if dictionary['data'] is False:
         return 'false'
     elif dictionary['data'] is True:
