@@ -43,7 +43,7 @@ def format_status(node):
 
 
 def has_children(node):
-    '''Checks if there are children in the node.'''
+    """Checks if there are children in the node."""
     if node['type node'] == 'internal':
         return True
     return False
