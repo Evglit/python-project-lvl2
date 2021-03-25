@@ -12,7 +12,4 @@ def parser_arg():
     parser.add_argument('-f', '--format', default='stylish',
                         help='output format (default: "stylish")')
     args = parser.parse_args()
-    path_file1 = args.first_file
-    path_file2 = args.second_file
-    format_name = args.format
-    return path_file1, path_file2, format_name
+    return args.first_file, args.second_file, args.format

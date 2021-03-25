@@ -10,7 +10,7 @@ def stylish(diff_list, level=0):
     diff_list.sort(key=lambda x: x['name'])
     for node in diff_list:
         status = format_status(node)
-        if has_children(node):
+        if node['type node'] == 'internal':
             result += indent + status + node['name'] + ': ' \
                 + stylish(node['children'], level + 1) + '\n'
         else:
@@ -40,10 +40,3 @@ def format_status(node):
         return '- '
     elif node['status'] == 'added' or node['status'] == 'after update':
         return '+ '
-
-
-def has_children(node):
-    """Checks if there are children in the node."""
-    if node['type node'] == 'internal':
-        return True
-    return False

@@ -18,14 +18,12 @@ from pathlib import Path
 )
 def test_diff_stylish_json(file1, file2, right_answer, format_name):
     path_dict1 = Path(
-        Path(__file__).parent.absolute(),
-        'fixtures',
-        file1)
+        Path(__file__).parent.absolute()/'fixtures'/file1)
     path_dict2 = path_dict1.with_name(file2)
     path_right_answer = Path(
-        Path(__file__).parent.absolute(),
-        'fixtures',
-        right_answer)
-    right_answer = open('{}'.format(path_right_answer))
-    assert generate_diff(path_dict1, path_dict2, format_name) \
-        == right_answer.read()[:-1]
+        Path(__file__).parent.absolute()/'fixtures'/right_answer)
+    with open('{}'.format(path_right_answer)) as f:
+        right_answer = f.read()[:-1]
+    assert generate_diff(path_dict1, path_dict2, format_name) == right_answer
+    if format_name == 'stylish':
+        assert generate_diff(path_dict1, path_dict2) == right_answer
