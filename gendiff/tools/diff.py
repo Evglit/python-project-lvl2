@@ -10,11 +10,7 @@ def diff(dict1, dict2):
         if key in dict1 and key in dict2:
             if dict1[key] == dict2[key]:
                 node['status'] = 'not changed'
-                if type(dict1[key]) is dict:
-                    node['status'] = 'nested'
-                    node['children'] = diff(dict1[key], dict2[key])
-                else:
-                    node['data'] = dict1[key]
+                node['data'] = dict1[key]
             else:
                 node['status'] = 'changed'
                 if type(dict1[key]) is dict and type(dict2[key]) is dict:

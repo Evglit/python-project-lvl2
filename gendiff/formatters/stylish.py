@@ -8,17 +8,17 @@ def stylish(diff_list, level=0):
     for i in range(level):
         indent += '    '
     diff_list.sort(key=lambda x: x['name'])
-    for node in diff_list:
-        status = format_status(node['status'])
+    for node in diff_list:        
         if node['status'] == 'nested':
             data = stylish(node['children'], level + 1)
-            result += indent + status + node['name'] + ': ' + data + '\n'
+            result += indent + '  ' + node['name'] + ': ' + data + '\n'
         elif node['status'] == 'changed':
             data = format_data(node['data before'], indent)
             result += indent + '- ' + node['name'] + ': ' + data + '\n'
             data = format_data(node['data after'], indent)
             result += indent + '+ ' + node['name'] + ': ' + data + '\n'
         else:
+            status = format_status(node['status'])
             data = format_data(node['data'], indent)
             result += indent + status + node['name'] + ': ' + data + '\n'
     result += indent[:-2] + '}'
@@ -31,12 +31,8 @@ def format_data(data, indent=None):
         indent += '    '
         result = '{\n'
         for key in data.keys():
-            if type(data[key]) is dict:
-                value = format_data(data[key], indent)
-                result += indent + '  ' + key + ': ' + value + '\n'
-            else:
-                value = format_data(data[key])
-                result += indent + '  ' + key + ': ' + value + '\n'
+            value = format_data(data[key], indent)
+            result += indent + '  ' + key + ': ' + value + '\n'
         result += indent[:-2] + '}'
         return result
     if data is False:
