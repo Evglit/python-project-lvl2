@@ -44,14 +44,15 @@ def get_diff_plain_list(diff_list, path=''):
 def create_change(data):
     """Parses the node data. Returns it in the correct format as a string."""
     if type(data) is dict:
-        return '[complex value]'
-    if data is False:
-        return 'false'
+        result = '[complex value]'
+    elif data is False:
+        result = 'false'
     elif data is True:
-        return 'true'
+        result = 'true'
     elif data is None:
-        return 'null'
-    if type(data) is str:
-        return "'{}'".format(data)
+        result = 'null'
+    elif type(data) is str:
+        result = "'{}'".format(data)
     else:
-        return '{}'.format(data)
+        result = '{}'.format(data)
+    return result
