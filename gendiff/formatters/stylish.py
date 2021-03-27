@@ -8,7 +8,7 @@ def stylish(diff_list, level=0):
     for i in range(level):
         indent += '    '
     diff_list.sort(key=lambda x: x['name'])
-    for node in diff_list:        
+    for node in diff_list:
         if node['status'] == 'nested':
             data = stylish(node['children'], level + 1)
             result += indent + '  ' + node['name'] + ': ' + data + '\n'
