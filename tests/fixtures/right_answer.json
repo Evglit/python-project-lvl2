@@ -1,92 +1,65 @@
 [
     {
         "name": "common",
-        "status": "not changed",
-        "type node": "internal",
+        "status": "nested",
         "children": [
             {
                 "name": "follow",
                 "status": "added",
-                "type node": "leaf",
                 "data": false
             },
             {
                 "name": "setting1",
                 "status": "not changed",
-                "type node": "leaf",
                 "data": "Value 1"
             },
             {
                 "name": "setting2",
                 "status": "deleted",
-                "type node": "leaf",
                 "data": 200
             },
             {
                 "name": "setting3",
-                "status": "before update",
-                "type node": "leaf",
-                "data": true
-            },
-            {
-                "name": "setting3",
-                "status": "after update",
-                "type node": "leaf",
-                "data": null
+                "status": "changed",
+                "data before": true,
+                "data after": null
             },
             {
                 "name": "setting4",
                 "status": "added",
-                "type node": "leaf",
                 "data": "blah blah"
             },
             {
                 "name": "setting5",
                 "status": "added",
-                "type node": "internal",
-                "children": [
-                    {
-                        "name": "key5",
-                        "status": "not changed",
-                        "type node": "leaf",
-                        "data": "value5"
-                    }
-                ]
+                "data": {
+                    "key5": "value5"
+                }
             },
             {
                 "name": "setting6",
-                "status": "not changed",
-                "type node": "internal",
+                "status": "nested",
                 "children": [
                     {
                         "name": "doge",
-                        "status": "not changed",
-                        "type node": "internal",
+                        "status": "nested",
                         "children": [
                             {
                                 "name": "wow",
-                                "status": "before update",
-                                "type node": "leaf",
-                                "data": ""
-                            },
-                            {
-                                "name": "wow",
-                                "status": "after update",
-                                "type node": "leaf",
-                                "data": "so much"
+                                "status": "changed",
+                                "data before": "",
+                                "data after": "so much"
                             }
                         ]
                     },
                     {
                         "name": "key",
                         "status": "not changed",
-                        "type node": "leaf",
                         "data": "value"
                     },
                     {
                         "name": "ops",
                         "status": "added",
-                        "type node": "leaf",
                         "data": "vops"
                     }
                 ]
@@ -95,105 +68,49 @@
     },
     {
         "name": "group1",
-        "status": "not changed",
-        "type node": "internal",
+        "status": "nested",
         "children": [
             {
                 "name": "baz",
-                "status": "before update",
-                "type node": "leaf",
-                "data": "bas"
-            },
-            {
-                "name": "baz",
-                "status": "after update",
-                "type node": "leaf",
-                "data": "bars"
+                "status": "changed",
+                "data before": "bas",
+                "data after": "bars"
             },
             {
                 "name": "foo",
                 "status": "not changed",
-                "type node": "leaf",
                 "data": "bar"
             },
             {
                 "name": "nest",
-                "status": "before update",
-                "type node": "internal",
-                "children": [
-                    {
-                        "name": "key",
-                        "status": "not changed",
-                        "type node": "leaf",
-                        "data": "value"
-                    }
-                ]
-            },
-            {
-                "name": "nest",
-                "status": "after update",
-                "type node": "leaf",
-                "data": "str"
+                "status": "changed",
+                "data before": {
+                    "key": "value"
+                },
+                "data after": "str"
             }
         ]
     },
     {
         "name": "group2",
         "status": "deleted",
-        "type node": "internal",
-        "children": [
-            {
-                "name": "abc",
-                "status": "not changed",
-                "type node": "leaf",
-                "data": 12345
-            },
-            {
-                "name": "deep",
-                "status": "not changed",
-                "type node": "internal",
-                "children": [
-                    {
-                        "name": "id",
-                        "status": "not changed",
-                        "type node": "leaf",
-                        "data": 45
-                    }
-                ]
+        "data": {
+            "abc": 12345,
+            "deep": {
+                "id": 45
             }
-        ]
+        }
     },
     {
         "name": "group3",
         "status": "added",
-        "type node": "internal",
-        "children": [
-            {
-                "name": "deep",
-                "status": "not changed",
-                "type node": "internal",
-                "children": [
-                    {
-                        "name": "id",
-                        "status": "not changed",
-                        "type node": "internal",
-                        "children": [
-                            {
-                                "name": "number",
-                                "status": "not changed",
-                                "type node": "leaf",
-                                "data": 45
-                            }
-                        ]
-                    }
-                ]
+        "data": {
+            "deep": {
+                "id": {
+                    "number": 45
+                }
             },
-            {
-                "name": "fee",
-                "status": "not changed",
-                "type node": "leaf",
-                "data": 100500
-            }
-        ]
+            "fee": 100500
+        }
     }
 ]

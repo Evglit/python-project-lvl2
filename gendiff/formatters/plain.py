@@ -3,7 +3,6 @@
 
 def plain(diff_list):
     """Converts a list of differences to flat format. Returns string."""
-    result = ''
     diff_list.sort(key=lambda x: x['name'])
     result = get_diff_plain_list(diff_list)
     return '\n'.join(result)
@@ -11,53 +10,48 @@ def plain(diff_list):
 
 def get_diff_plain_list(diff_list, path=''):
     """Analysis of the nodes. Returns a list with changes."""
-    plain_list = []
-    intermediate_result = ''
+    result = []
     for node in diff_list:
-        if node['status'] == 'not changed' and node['type node'] == 'internal':
+        if node['status'] == 'nested':
             path_to_change = path + node['name'] + '.'
             difference = get_diff_plain_list(node['children'], path_to_change)
-            plain_list.extend(difference)
+            result.extend(difference)
         if node['status'] == 'added':
             path_to_change = path + node['name']
-            change = create_change(node)
+            change = create_change(node['data'])
             difference = (
                 f"Property '{path_to_change}' was added "
                 f"with value: {change}"
             )
-            plain_list.append(difference)
+            result.append(difference)
         if node['status'] == 'deleted':
             path_to_change = path + node['name']
-            change = create_change(node)
+            change = create_change(node['data'])
             difference = "Property '{}' was removed".format(path_to_change)
-            plain_list.append(difference)
-        if node['status'] == 'before update':
+            result.append(difference)
+        if node['status'] == 'changed':
             path_to_change = path + node['name']
-            change = create_change(node)
-            intermediate_result = (
+            change_before = create_change(node['data before'])
+            change_after = create_change(node['data after'])
+            difference = (
                 f"Property '{path_to_change}' was updated. "
-                f"From {change} to "
+                f"From {change_before} to {change_after}"
             )
-            continue
-        if node['status'] == 'after update':
-            change = create_change(node)
-            difference = intermediate_result + "{}".format(change)
-            plain_list.append(difference)
-            intermediate_result = ''
-    return plain_list
+            result.append(difference)
+    return result
 
 
-def create_change(dictionary):
+def create_change(data):
     """Parses the node data. Returns it in the correct format as a string."""
-    if dictionary['type node'] == 'internal':
+    if type(data) is dict:
         return '[complex value]'
-    if dictionary['data'] is False:
+    if data is False:
         return 'false'
-    elif dictionary['data'] is True:
+    elif data is True:
         return 'true'
-    elif dictionary['data'] is None:
+    elif data is None:
         return 'null'
-    if type(dictionary['data']) is str:
-        return "'{}'".format(dictionary['data'])
+    if type(data) is str:
+        return "'{}'".format(data)
     else:
-        return '{}'.format(dictionary['data'])
+        return '{}'.format(data)
