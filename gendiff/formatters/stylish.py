@@ -15,21 +15,21 @@ def get_diff_stylish(diff_list, level=0):
     for node in diff_list:
         if node['status'] == 'nested':
             data = get_diff_stylish(node['children'], level + 1)
-            result += indent + '  ' + node['name'] + ': ' + data + '\n'
+            result += f"{indent}  {node['name']}: {data}\n"
         if node['status'] == 'not changed':
             data = format_data(node['data'], indent)
-            result += indent + '  ' + node['name'] + ': ' + data + '\n'
+            result += f"{indent}  {node['name']}: {data}\n"
         if node['status'] == 'added':
             data = format_data(node['data'], indent)
-            result += indent + '+ ' + node['name'] + ': ' + data + '\n'
+            result += f"{indent}+ {node['name']}: {data}\n"
         if node['status'] == 'deleted':
             data = format_data(node['data'], indent)
-            result += indent + '- ' + node['name'] + ': ' + data + '\n'
+            result += f"{indent}- {node['name']}: {data}\n"
         if node['status'] == 'changed':
             data = format_data(node['data before'], indent)
-            result += indent + '- ' + node['name'] + ': ' + data + '\n'
+            result += f"{indent}- {node['name']}: {data}\n"
             data = format_data(node['data after'], indent)
-            result += indent + '+ ' + node['name'] + ': ' + data + '\n'
+            result += f"{indent}+ {node['name']}: {data}\n"
     result += indent[:-2] + '}'
     return result
 
