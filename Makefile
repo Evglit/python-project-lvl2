@@ -8,7 +8,10 @@ gendiff:
 	poetry run gendiff
 
 test:
-	pytest
+	poetry run pytest
+
+test-coverage:
+	poetry run coverage xml
 
 package-install:
 	poetry build
