@@ -6,11 +6,12 @@ install:
 
 gendiff:
 	poetry run gendiff
-
+	
 test:
 	poetry run pytest
 
 test-coverage:
+	poetry run coverage run -m pytest 
 	poetry run coverage xml
 
 package-install:
