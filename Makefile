@@ -13,5 +13,5 @@ test:
 package-install:
 	poetry build
 	python3 -m pip install --user dist/*.whl.
-	
+
 .PHONY: gendiff
